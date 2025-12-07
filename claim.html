@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>FWFigures.gg – Claim Order</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FWF — Claim</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<header class="header">
-    <img src="images/logo.png" class="logo">
-</header>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">FWF<div class="hat">🎅</div></div>
+        <div><h1>Claim your order</h1><div class="small">Introduce tus datos para reclamar tu encargo</div></div>
+      </div>
+    </header>
 
-<section class="claim-box">
-    <h2>Claim your order 🎄</h2>
+    <section class="card claim-card">
+      <label>Producto (se autocompleta si vienes desde la ficha)</label>
+      <input id="claimProduct" class="input" placeholder="Hombre / Mujer">
 
-    <label>Usuario que compró:</label>
-    <input id="buyer" type="text" placeholder="Usuario Roblox">
+      <label>Usuario que compró (Roblox)</label>
+      <input id="claimUser" class="input" placeholder="Usuario comprador">
 
-    <label>Usuario que recibirá la comisión:</label>
-    <input id="receiver" type="text" placeholder="Ej: Facuw2000">
+      <label>Usuario que recibirá la comisión</label>
+      <input id="modelUser" class="input" placeholder="Usuario destino">
 
-    <label>Correo de compra:</label>
-    <input id="email" type="email" placeholder="example@gmail.com">
+      <label>Correo usado</label>
+      <input id="claimEmail" class="input" placeholder="tucorreo@example.com">
 
-    <button onclick="sendClaim()">Enviar Claim</button>
+      <label>URL referencia (opcional)</label>
+      <input id="claimImage" class="input" placeholder="https://...">
 
-    <p id="claimCodeBox"></p>
+      <label>Notas</label>
+      <textarea id="claimNotes" class="textarea" placeholder="Detalles: colores, pose, extras..."></textarea>
 
-    <a class="support-btn" href="https://discord.gg/Bby3hWZUYV">Support Server</a>
-</section>
+      <div style="display:flex;gap:10px;margin-top:12px">
+        <button class="btn" onclick="submitClaim()">Enviar Claim</button>
+        <button class="btn btn-ghost" onclick="autoFillDemo()">Rellenar demo</button>
+      </div>
+
+      <div id="claimResult" class="claim-code" style="display:none;margin-top:14px"></div>
+      <div id="claimAlert" style="display:none" class="alert"></div>
+    </section>
+  </div>
 
 <script src="script.js"></script>
+<script>
+  // autocompleta producto si viene por query param
+  const params = new URLSearchParams(location.search);
+  const p = params.get('producto') || params.get('product');
+  if(p) document.getElementById('claimProduct').value = p;
+
+  function autoFillDemo(){
+    document.getElementById('claimUser').value = 'DemoBuyer';
+    document.getElementById('modelUser').value = 'Facuw2000';
+    document.getElementById('claimEmail').value = 'demo@mail.com';
+    document.getElementById('claimNotes').value = 'Demo - por favor revisar';
+  }
+</script>
 </body>
 </html>
