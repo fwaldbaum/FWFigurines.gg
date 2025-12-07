@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>FWFigures – Claim</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">FWF</div>
+</header>
+
+<section class="claim-container">
+
+    <h2>Claim Your Order</h2>
+
+    <label>Usuario comprador:</label>
+    <input id="claimUser" type="text" placeholder="Usuario Roblox">
+
+    <label>Usuario para la comisión:</label>
+    <input id="modelUser" type="text" placeholder="Ej: Facuw2000">
+
+    <label>Correo usado en la compra:</label>
+    <input id="claimEmail" type="email" placeholder="correo@gmail.com">
+
+    <label>Producto:</label>
+    <input id="claimProduct" type="text">
+
+    <button onclick="submitClaim()" class="submit-claim">Enviar Claim</button>
+
+</section>
+
+<script src="script.js"></script>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const prod = urlParams.get("product");
+    if(prod) document.getElementById("claimProduct").value = prod;
+</script>
+
+</body>
+</html>
