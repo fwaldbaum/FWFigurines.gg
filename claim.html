@@ -2,42 +2,34 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>FWFigures – Claim</title>
+    <title>FWFigures.gg – Claim Order</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
 <header class="header">
-    <div class="logo">FWF</div>
+    <img src="images/logo.png" class="logo">
 </header>
 
-<section class="claim-container">
+<section class="claim-box">
+    <h2>Claim your order 🎄</h2>
 
-    <h2>Claim Your Order</h2>
+    <label>Usuario que compró:</label>
+    <input id="buyer" type="text" placeholder="Usuario Roblox">
 
-    <label>Usuario comprador:</label>
-    <input id="claimUser" type="text" placeholder="Usuario Roblox">
+    <label>Usuario que recibirá la comisión:</label>
+    <input id="receiver" type="text" placeholder="Ej: Facuw2000">
 
-    <label>Usuario para la comisión:</label>
-    <input id="modelUser" type="text" placeholder="Ej: Facuw2000">
+    <label>Correo de compra:</label>
+    <input id="email" type="email" placeholder="example@gmail.com">
 
-    <label>Correo usado en la compra:</label>
-    <input id="claimEmail" type="email" placeholder="correo@gmail.com">
+    <button onclick="sendClaim()">Enviar Claim</button>
 
-    <label>Producto:</label>
-    <input id="claimProduct" type="text">
+    <p id="claimCodeBox"></p>
 
-    <button onclick="submitClaim()" class="submit-claim">Enviar Claim</button>
-
+    <a class="support-btn" href="https://discord.gg/Bby3hWZUYV">Support Server</a>
 </section>
 
 <script src="script.js"></script>
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const prod = urlParams.get("product");
-    if(prod) document.getElementById("claimProduct").value = prod;
-</script>
-
 </body>
 </html>
