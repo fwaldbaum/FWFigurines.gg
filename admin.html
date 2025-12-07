@@ -2,25 +2,22 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>FWFigures – Admin</title>
+    <title>FWFigures.gg – Admin</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
 <section class="admin-login" id="loginBox">
     <h2>Panel Admin</h2>
     <input id="adminPass" type="password" placeholder="Contraseña">
-    <button onclick="loginAdmin()">Ingresar</button>
+    <button onclick="loginAdmin()">Entrar</button>
 </section>
 
-<section id="adminPanel" class="admin-panel hidden">
-    <h2>Órdenes recibidas</h2>
-
-    <div id="adminOrders"></div>
+<section class="admin-panel" id="panel" style="display:none;">
+    <h2>Ordenes Recibidas</h2>
+    <div id="orders"></div>
 </section>
 
 <script src="script.js"></script>
-
 </body>
 </html>
