@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>FWFigures.gg – Admin</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FWF — Admin</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<section class="admin-login" id="loginBox">
-    <h2>Panel Admin</h2>
-    <input id="adminPass" type="password" placeholder="Contraseña">
-    <button onclick="loginAdmin()">Entrar</button>
-</section>
+  <div class="container">
+    <section class="admin-box" id="loginBox">
+      <h2>Panel Admin</h2>
+      <div style="display:flex;gap:10px;align-items:center;margin-top:10px">
+        <input id="adminPass" type="password" placeholder="Contraseña">
+        <button class="btn" onclick="loginAdminFromUI()">Entrar</button>
+      </div>
+      <p class="small" style="margin-top:10px">La contraseña no se muestra aquí. Usa la contraseña correcta para ver las órdenes.</p>
+    </section>
 
-<section class="admin-panel" id="panel" style="display:none;">
-    <h2>Ordenes Recibidas</h2>
-    <div id="orders"></div>
-</section>
+    <section id="panelArea" style="display:none" class="admin-box">
+      <div style="display:flex;gap:12px;align-items:center;justify-content:space-between">
+        <h2>Órdenes (FWF)</h2>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" onclick="downloadOrders()">Descargar JSON</button>
+          <button class="btn btn-ghost" onclick="clearAllOrders()">Borrar todo</button>
+        </div>
+      </div>
+
+      <div style="margin-top:12px">
+        <label>Filtrar</label>
+        <select id="filterModel" onchange="renderAdminOrders()">
+          <option value="">Todas</option>
+          <option>Hombre</option>
+          <option>Mujer</option>
+        </select>
+        <input id="searchQ" placeholder="Buscar por usuario o email" class="input" style="margin-top:8px" oninput="renderAdminOrders()">
+      </div>
+
+      <div id="ordersList" class="orders" style="margin-top:16px"></div>
+    </section>
+  </div>
 
 <script src="script.js"></script>
 </body>
