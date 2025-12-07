@@ -1,358 +1,141 @@
-/* ===================================================================
-   style.css — FWFigures (FWF) — Interfaz premium (UI "100 estrellas")
-   Diseño: moderno, limpio, accesible, responsive, sutil tema navideño
-   =================================================================== */
+/* ===========================
+   100 STARS ULTRA UI DESIGN
+   =========================== */
 
-/* ---------- Variables de diseño (ajusta colores aquí) ---------- */
-:root{
-  --bg-1: #f5f8ff;            /* fondo general */
-  --bg-2: #eef6ff;            /* secciones */
-  --card: #ffffff;            /* tarjetas */
-  --glass: rgba(255,255,255,0.65);
-  --muted: #6b7280;
-  --text: #071029;
-  --accent-1: #0b78ff;        /* azul principal */
-  --accent-2: #ff416c;        /* rojo cálido */
-  --accent-3: linear-gradient(90deg,#0b78ff,#ff416c);
-  --shadow-1: 0 8px 30px rgba(12,20,40,0.08);
-  --shadow-2: 0 18px 60px rgba(7,89,218,0.06);
-  --round: 14px;
-  --radius-sm: 8px;
-  --glass-border: rgba(255,255,255,0.5);
-  --success: #20c997;
-  --danger: #ff6b6b;
-  --ui-ease: cubic-bezier(.17,.85,.45,1);
-  --max-width: 1100px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-/* ---------- Reset / base ---------- */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background:
-    radial-gradient(800px 400px at 10% 0%, rgba(11,120,255,0.06), transparent 8%),
-    radial-gradient(600px 300px at 95% 100%, rgba(255,65,108,0.03), transparent 6%),
-    var(--bg-1);
-  color:var(--text);
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  -webkit-tap-highlight-color: transparent;
-  line-height:1.45;
-  padding-bottom:60px;
+body {
+  background: linear-gradient(135deg, #111827, #1f2937);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
 }
 
-/* ---------- Container ---------- */
-.container{
-  max-width:var(--max-width);
-  margin:32px auto;
-  padding:0 20px;
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.7s ease;
 }
 
-/* ---------- Header ---------- */
-.header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  margin-bottom:18px;
-}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-.logo{
-  width:56px;
-  height:56px;
-  border-radius:12px;
-  background:var(--accent-3);
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  font-size:18px;
-  box-shadow:var(--shadow-2);
-  position:relative;
-}
-.logo .hat{ /* pequeño gorrito navideño decorativo */
-  position:absolute;
-  top:-10px; right:-8px;
-  transform:rotate(-18deg);
-  font-size:18px;
-  filter:drop-shadow(0 6px 10px rgba(0,0,0,0.12));
-}
-.brand h1{margin:0;font-size:18px;letter-spacing:0.2px}
-.brand p{margin:0;color:var(--muted);font-size:13px}
-
-/* nav */
-.nav{display:flex;gap:12px;align-items:center}
-.nav a{
-  color:var(--muted);
-  text-decoration:none;
-  font-weight:700;
-  padding:8px 12px;
-  border-radius:10px;
-  transition:all .22s var(--ui-ease);
-}
-.nav a:hover{ background: rgba(11,120,255,0.06); color:var(--accent-1)}
-.nav a.cta{
-  background:var(--accent-3);
-  color:white;
-  box-shadow:0 8px 30px rgba(11,120,255,0.12);
-  padding:10px 14px;
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-/* ---------- Hero ---------- */
-.hero{
-  display:flex;
-  gap:28px;
-  align-items:center;
-  background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(250,253,255,0.95));
-  border-radius:18px;
-  padding:34px;
-  box-shadow:var(--shadow-1);
-}
-.hero-left{flex:1}
-.hero h2{font-size:30px;margin:0 0 10px}
-.hero p{margin:0;color:var(--muted)}
-.hero .primary{
-  margin-top:16px;
-  background:var(--accent-3);
-  color:white;
-  border:0;
-  padding:12px 18px;
-  border-radius:12px;
-  font-weight:800;
-  cursor:pointer;
-  box-shadow:0 12px 40px rgba(11,120,255,0.08);
-  transition:transform .18s var(--ui-ease);
-}
-.hero .primary:hover{ transform:translateY(-3px) }
-
-/* hero-right preview */
-.hero-right img{
-  width:320px;
-  height:auto;
-  border-radius:12px;
-  object-fit:cover;
-  box-shadow:var(--shadow-2);
+/* Títulos */
+h1, h2, h3 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
-/* ---------- Grid de productos ---------- */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:26px;
-  margin-top:28px;
-}
-.card{
-  background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--card));
-  border-radius:var(--round);
-  padding:18px;
-  text-align:center;
-  box-shadow:var(--shadow-1);
-  transition: transform .25s var(--ui-ease), box-shadow .25s var(--ui-ease);
-  position:relative;
-  overflow:hidden;
-}
-.card:hover{
-  transform:translateY(-8px) scale(1.01);
-  box-shadow:0 28px 90px rgba(7,89,218,0.08);
+/* Inputs */
+input, select {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: 0.3s ease;
 }
 
-/* product image */
-.card .product-img{
-  width:100%;
-  height:300px;
-  object-fit:cover;
-  border-radius:12px;
-  display:block;
-}
-.preview-label{
-  display:inline-block;
-  margin-top:10px;
-  font-weight:800;
-  color:var(--accent-2);
-  text-transform:uppercase;
-  letter-spacing:0.8px;
-  font-size:13px;
+input:focus, select:focus {
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 0 0 2px #60a5fa;
 }
 
-/* product info */
-.card h3{margin:12px 0 6px;font-size:18px}
-.card .small{color:var(--muted);font-size:13px}
-
-/* buttons */
-.btn{
-  display:inline-block;
-  background:var(--accent-3);
-  color:white;
-  padding:10px 14px;
-  border-radius:12px;
-  border:0;
-  font-weight:800;
-  cursor:pointer;
-  transition:transform .18s var(--ui-ease);
-  margin-top:12px;
-}
-.btn:hover{ transform:translateY(-3px) }
-
-/* ghost */
-.btn-ghost{
-  background:transparent;
-  color:var(--text);
-  border:1px solid #eef2f7;
+/* Botones */
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
 }
 
-/* ---------- Product page layout ---------- */
-.product-page{
-  display:flex;
-  gap:32px;
-  align-items:flex-start;
-  margin-top:28px;
-}
-.product-big{
-  width:420px;
-  border-radius:16px;
-  object-fit:cover;
-  box-shadow:var(--shadow-2);
-}
-.product-info{
-  flex:1;
-  background:linear-gradient(180deg, rgba(255,255,255,0.95), #fff);
-  padding:22px;border-radius:16px;box-shadow:var(--shadow-1);
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59,130,246,0.4);
 }
 
-/* ---------- Claim full-screen modal/overlay ---------- */
-.claim-overlay{
-  position:fixed;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  background:rgba(8,12,24,0.55);
-  z-index:9999;
-}
-.claim-modal{
-  width:92%;
-  max-width:980px;
-  background:linear-gradient(180deg,#ffffff,#fcfeff);
-  border-radius:16px;
-  padding:22px;
-  display:flex;
-  gap:20px;
-  box-shadow:0 40px 120px rgba(2,6,23,0.6);
-}
-.claim-left{flex:1}
-.claim-right{flex:1;display:flex;flex-direction:column;gap:12px}
-
-.input{
-  width:100%;
-  padding:12px;
-  border-radius:12px;
-  border:1px solid #eef2f7;
-  background:transparent;
-  font-size:15px;
-}
-.textarea{
-  min-height:120px;padding:12px;border-radius:12px;border:1px solid #eef2f7;resize:vertical;
+/* Tarjetas */
+.card {
+  background: rgba(255,255,255,0.10);
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 15px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
 }
 
-/* action row */
-.action-row{display:flex;gap:12px;align-items:center}
-.btn.small{padding:8px 12px}
-
-/* mini helper text */
-.small{font-size:13px;color:var(--muted)}
-
-/* claim code box */
-.claim-code{
-  margin-top:12px;
-  padding:12px;
-  border-radius:10px;
-  background:linear-gradient(90deg, rgba(11,120,255,0.06), rgba(255,65,108,0.03));
-  font-weight:800;
-  color:var(--text);
-  text-align:center;
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(255,255,255,0.1);
 }
 
-/* ---------- Admin area ---------- */
-.admin-box{
-  margin-top:26px;
-  padding:16px;
-  border-radius:12px;
-  background:linear-gradient(180deg,#fff,#fbfdff);
-  box-shadow:var(--shadow-1);
-}
-.admin-login{display:flex;gap:12px;align-items:center}
-.admin-login input{padding:10px;border-radius:10px;border:1px solid #eef2f7}
-
-/* orders list */
-.orders{margin-top:14px;max-height:420px;overflow:auto;padding-right:8px}
-.order-item{
-  background:#fff;padding:14px;border-radius:12px;margin-bottom:12px;border:1px solid #f0f3fb;
-  display:flex;gap:8px;align-items:flex-start;justify-content:space-between;
-}
-.order-item .meta{color:var(--muted);font-size:13px}
-.order-actions button{padding:8px 10px;border-radius:8px;border:0;cursor:pointer}
-.order-actions .del{background:var(--danger);color:white}
-.order-actions .copy{background:#f0f4ff;color:var(--accent-1)}
-
-/* ---------- Footer ---------- */
-footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px}
-
-/* ---------- TOAST (notificaciones) ---------- */
-.toast{
-  position:fixed;right:20px;bottom:20px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
-  color:white;padding:12px 16px;border-radius:12px;box-shadow:0 8px 30px rgba(11,120,255,0.12);
-  transform:translateY(10px);opacity:0;pointer-events:none;transition:all .25s var(--ui-ease);z-index:99999;
-}
-.toast.show{opacity:1;transform:none;pointer-events:auto}
-
-/* ---------- Accessible focus states ---------- */
-:focus{outline:none}
-button:focus, a:focus, input:focus, textarea:focus{
-  box-shadow:0 6px 24px rgba(11,120,255,0.12); border-color:var(--accent-1);
-  outline: 3px solid rgba(11,120,255,0.08);
-  outline-offset:2px;
-  border-radius:10px;
+/* Imágenes */
+img {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  display: block;
 }
 
-/* ---------- subtle snow effect (decorative) ---------- */
-.snow{
-  position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.09;
-  background-image:
-    radial-gradient(circle at 10% 10%, rgba(255,255,255,0.9) 1px, transparent 1px),
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 1px, transparent 1px),
-    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.9) 1px, transparent 1px);
-  background-size: 60px 60px, 80px 80px, 120px 120px;
-  filter: blur(0.6px);
+/* Código de claim */
+.code-box {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.35);
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-top: 15px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 980px){
-  .grid{grid-template-columns:1fr}
-  .hero{flex-direction:column;align-items:flex-start}
-  .hero-right img{width:100%;max-width:420px}
-  .product-page{flex-direction:column;gap:20px}
-  .product-big{width:100%}
-  .claim-modal{flex-direction:column}
-  .container{padding:0 18px}
-}
-@media (max-width: 480px){
-  .logo{width:44px;height:44px;font-size:16px}
-  .hero h2{font-size:22px}
-  .claim-modal{padding:16px}
-  .card .product-img{height:220px}
+/* Alertas */
+.alert {
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 500;
 }
 
-/* ---------- Utility helpers ---------- */
-.hidden{display:none}
-.kv{color:var(--muted);font-size:13px}
+.alert.success {
+  background: rgba(34,197,94,0.2);
+  color: #4ade80;
+}
 
-/* ===================================================================
-   Fin de style.css — Ajustes: cambia variables en :root para personalizar
-   =================================================================== */
+.alert.error {
+  background: rgba(239,68,68,0.2);
+  color: #f87171;
+}
+
