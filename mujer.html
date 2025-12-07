@@ -1,72 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FWF — Figura Mujer</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>FWFigures – Mujer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="container">
-    <header class="header">
-      <div class="brand">
-        <div class="logo">FWF<div class="hat">🎅</div></div>
-        <div>
-          <h1>FWFigures</h1>
-          <div class="small">Figura Mujer</div>
-        </div>
-      </div>
-      <nav class="nav"><a href="index.html">Inicio</a><a href="#claim" onclick="openClaim('Mujer')">Claim</a><a href="https://discord.gg/Bby3hWZUYV" target="_blank">Soporte</a></nav>
-    </header>
+<header class="header">
+    <div class="logo">FWF</div>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="hombre.html">Hombre</a>
+        <a href="mujer.html">Mujer</a>
+        <a href="claim.html">Claim</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+</header>
 
-    <section class="card" style="text-align:center">
-      <img src="mujer.png" alt="Mujer">
-      <h3 style="margin-top:16px">Figura Mujer</h3>
-      <div style="color:var(--muted);margin-top:8px">Pase 50% OFF</div>
-      <div style="margin-top:16px">
-        <button class="btn" onclick="window.location.href='https://www.roblox.com/es/game-pass/1616294649/Comisi-n-barata-mujer-50-OFF'">Comprar ahora</button>
-        <button class="btn" style="background:transparent;color:#111;border:1px solid #eef2f7;margin-left:8px" onclick="openClaim('Mujer')">Claim your order</button>
-      </div>
-    </section>
+<section class="product-page">
+    <div class="product-card">
+        <img src="images/mujer.png" class="product-img">
+        <span class="preview-label">FWF Preview</span>
 
-    <!-- admin -->
-    <section class="admin-box">
-      <div style="display:flex;justify-content:space-between;align-items:center"><strong>Panel Admin</strong><small class="small">Acceso seguro</small></div>
-      <div style="margin-top:12px" class="admin-login">
-        <input id="adminPass" type="password" placeholder="Contraseña">
-        <button class="btn" onclick="loginAdminFromUI()">Entrar</button>
-      </div>
-      <div id="ordersArea" class="orders hidden"></div>
-    </section>
-  </div>
+        <h2>Figura Mujer Premium</h2>
 
-  <!-- Claim overlay (shared) -->
-  <div id="claimOverlay" class="claim-overlay">
-    <div class="claim-modal" role="dialog" aria-modal="true">
-      <div class="claim-left">
-        <h2 id="claimTitle">Claim your order</h2>
-        <p class="small">Después de comprar el pase en Roblox, rellena este formulario para completar tu pedido.</p>
-        <img id="claimPreview2" src="mujer.png" style="width:100%;border-radius:10px;margin-top:12px">
-      </div>
+        <a class="buy-btn"
+           href="https://www.roblox.com/es/game-pass/1616294649/Comisi-n-barata-mujer-50-OFF"
+           target="_blank">Comprar ahora</a>
 
-      <div class="claim-right">
-        <input id="claimModel" type="hidden">
-        <input id="purchased_user" class="input" placeholder="Usuario que usaste para comprar (Roblox)">
-        <input id="target_user" class="input" placeholder="Usuario para quien se hará la comisión">
-        <input id="email" class="input" placeholder="Tu email">
-        <input id="image_url" class="input" placeholder="URL imagen de referencia (opcional)">
-        <textarea id="notes" class="textarea" placeholder="Detalles / colores / pose..."></textarea>
-
-        <div class="action-row">
-          <button class="btn" onclick="submitClaim()">Enviar orden</button>
-          <button class="btn btn-ghost" onclick="closeClaim()">Cancelar</button>
-        </div>
-        <div class="small" style="margin-top:8px">Soporte: <a href="https://discord.gg/Bby3hWZUYV" target="_blank">Discord</a></div>
-      </div>
+        <a class="claim-btn" href="claim.html?product=Mujer">Claim Order</a>
     </div>
-  </div>
+</section>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
+
